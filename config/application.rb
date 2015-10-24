@@ -22,5 +22,6 @@ module Workspace
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
+    EVN.update YAML.load_file('config/application.yml')[Rails.evn] rescue{}
   end
 end
